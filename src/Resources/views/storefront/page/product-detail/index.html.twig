@@ -1,0 +1,58 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
+
+{% block base_head %}
+    {{ parent() }}
+
+    <script type='text/javascript' src='https://cdn.retail.red/omni-enablement/retailred-quickreserve-0.1.1-8.js'></script>
+
+    <script type="text/javascript">
+        try {
+            window.addEventListener('load', function () {
+                var retailred = window.RetailRedEnablement.create({
+                    apiKey: '{{ shopware.config.SgOmniEnablement.config.apiKey }}',
+                    apiStage: '{{ shopware.config.SgOmniEnablement.config.apiStage }}',
+                    unitSystem: '{{ shopware.config.SgOmniEnablement.config.unitSystem }}',
+                    localization: {
+                        countries: ['de'], // TODO
+                    },
+                    inventory: {
+                        hideNumber: {{ shopware.config.SgOmniEnablement.config.inventoryHideNumber | json_encode }},
+                        showExactUntil: {{ shopware.config.SgOmniEnablement.config.inventoryShowExactUntil|default('null') }},
+                        showLowUntil: {{ shopware.config.SgOmniEnablement.config.inventoryShowLowUntil }},
+                    },
+                    legal: {
+                        terms: 'https://google.de', // TODO
+                        privacy: 'https://google.de', // TODO
+                    },
+                    customer: {
+                        code: '{{ context.customer.customerNumber }}',
+                        firstName: '{{ context.customer.firstName }}',
+                        lastName: '{{ context.customer.lastName }}',
+                        phone: '{{ context.customer.defaultBillingAddress.phoneNumber }}',
+                        emailAddress: '{{ context.customer.email }}',
+                    },
+                    product: {
+                        code: '{{ page.product.productNumber }}',
+                        name: '{{ page.product.translated.name }}',
+                        quantity: {{ page.product.calculatedPrice.quantity }},
+                        imageUrl: '{{ page.product.cover.media.url }}',
+                        price: {{ page.product.calculatedPrice.unitPrice }},
+                        currencyCode: '{{ context.currency.isoCode }}',
+                        options: [], // TODO
+                    },
+                });
+                retailred.renderReserveButton('#rr-dropin');
+
+                $('.product-detail-quantity-select').change(function() {
+                    retailred.updateConfig({
+                        product: {
+                            quantity: $(this).val(),
+                        },
+                    });
+                });
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    </script>
+{% endblock %}

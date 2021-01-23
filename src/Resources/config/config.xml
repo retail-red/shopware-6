@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Basic Configuration</title>
+        <title lang="de-DE">Grundeinstellungen</title>
+
+        <input-field type="text">
+            <name>apiKey</name>
+            <label>apiKey</label>
+            <copyable>true</copyable>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>apiStage</name>
+            <label>Stage</label>
+            <defaultValue>production</defaultValue>
+            <options>
+                <option>
+                    <id>production</id>
+                    <name>production</name>
+                </option>
+                <option>
+                    <id>staging</id>
+                    <name>staging</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>unitSystem</name>
+            <label>Units</label>
+            <defaultValue>metric</defaultValue>
+            <options>
+                <option>
+                    <id>metric</id>
+                    <name>metric</name>
+                </option>
+                <option>
+                    <id>imperial</id>
+                    <name>imperial</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="bool">
+            <name>inventoryHideNumber</name>
+            <label>Hide stock</label>
+            <helpText>Hides the stock number and therefore display only if the product is available or not.</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>inventoryShowExactUntil</name>
+            <label>Show exact inventory until</label>
+            <helpText>If inventory is higher than the given number the inventory will be displayed as X+ Available</helpText>
+        </input-field>
+
+        <input-field type="int">
+            <name>inventoryShowLowUntil</name>
+            <label>Show low inventory until</label>
+            <helpText>If inventory is lower than the given number the inventory will be displayed in the state-warning color</helpText>
+            <defaultValue>5</defaultValue>
+        </input-field>
+
+        <input-field type="url">
+            <name>termsLink</name>
+            <label>Terms Link</label>
+            <helpText>Add an url to the terms and condition page, also enforces the user to accept them before placing an reservation</helpText>
+            <copyable>true</copyable>
+        </input-field>
+
+        <input-field type="url">
+            <name>privacyLink</name>
+            <label>Privacy Link</label>
+            <helpText>Add an url to the privacy page, also enforces the user to accept them before placing an reservation</helpText>
+            <copyable>true</copyable>
+        </input-field>
+    </card>
+
+
+</config>

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Sg\OmniEnablement;
+namespace Rr\OmniEnablement;
 
 use Shopware\Core\Framework\Plugin;
 
-class SgOmniEnablement extends Plugin
+class RrOmniEnablement extends Plugin
 {
 
 }

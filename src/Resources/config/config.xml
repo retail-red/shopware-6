@@ -44,6 +44,21 @@
             </options>
         </input-field>
 
+        <input-field type="multi-select">
+            <name>countries</name>
+            <label>Countries</label>
+            <options>
+                <option>
+                    <id>de</id>
+                    <name>de</name>
+                </option>
+                <option>
+                    <id>us</id>
+                    <name>us</name>
+                </option>
+            </options>
+        </input-field>
+
         <input-field type="bool">
             <name>inventoryHideNumber</name>
             <label>Hide stock</label>
@@ -54,7 +69,7 @@
         <input-field type="int">
             <name>inventoryShowExactUntil</name>
             <label>Show exact inventory until</label>
-            <helpText>If inventory is higher than the given number the inventory will be displayed as X+ Available</helpText>
+            <helpText>If inventory is higher than the given number the inventory will be displayed as "X+ Available"</helpText>
         </input-field>
 
         <input-field type="int">
@@ -79,5 +94,45 @@
         </input-field>
     </card>
 
+    <card>
+        <title>Color Configuration</title>
+        <title lang="de-DE">Farbeinstellungen</title>
+        <input-field type="textarea">
+            <name>colors</name>
+            <label>Colors</label>
+            <helpText>Please use only the 3 numbers of rgb schema. rgb(1,2,3) -> 1,2,3</helpText>
+            <defaultValue>
+                /* Primary color used for form elements and buttons */
+                --color-primary: 0, 0, 0;
+                /* Color used for links */
+                --color-link: 60, 155, 181;
+                /* Color used for alerting texts like errors */
+                --color-state-alarm : 176, 0, 32;
+                /* Color used for highlighting problems like low stock */
+                --color-state-warning: 241, 156, 69;
+                /* Color used for positve highlighting like successful reservation text. */
+                --color-state-success: 50, 172, 92;
+            </defaultValue>
+        </input-field>
+    </card>
 
+    <card>
+        <title>Translations</title>
+        <title lang="de-DE">Übersetzungen</title>
+        <input-field type="textarea">
+            <name>translations</name>
+            <label>Translations JSON</label>
+            <helpText>JSON format. All strings can be found in the github repo</helpText>
+            <placeholder>
+            {
+                "de":{
+                    "reserve.submit":"Reserve JETZT"
+                },
+                "en":{
+                    "reserve.submit":"Reserve NOW"
+                }
+            }
+            </placeholder>
+        </input-field>
+    </card>
 </config>

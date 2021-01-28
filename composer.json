@@ -1,5 +1,5 @@
 {
-    "name": "shopgate/omni-enablement",
+    "name": "retailred/omni-enablement",
     "description": "",
     "version": "1.0.0",
     "type": "shopware-platform-plugin",
@@ -17,28 +17,20 @@
         "optimize-autoloader": true
     },
     "extra": {
-        "shopware-plugin-class": "Sg\\OmniEnablement\\SgOmniEnablement",
+        "shopware-plugin-class": "Rr\\OmniEnablement\\RrOmniEnablement",
         "copyright": "(c) by shopgate",
-        "label": {
-            "de-DE": "TODO",
-            "en-GB": "TODO"
-        },
-        "description": {
-            "de-DE": "TODO",
-            "en-GB": "TODO"
-        },
-        "manufacturerLink": {
-            "de-DE": "TODO",
-            "en-GB": "TODO"
-        },
-        "supportLink": {
-            "de-DE": "TODO",
-            "en-GB": "TODO"
-        }
+        "label":{
+             "de-DE":"Retail.red omni enablement",
+             "en-GB":"Retail.red omni enablement"
+         },
+        "description":{
+             "de-DE":"",
+             "en-GB":""
+         }
     },
     "autoload": {
         "psr-4": {
-            "Sg\\OmniEnablement\\": "src/"
+            "Rr\\OmniEnablement\\": "src/"
         }
     }
 }

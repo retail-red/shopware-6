@@ -5,6 +5,11 @@
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Shopgate GmbH",
+            "homepage": "https://www.shopgate.de/",
+            "role": "Manufacturer"
+        }
     ],
     "require": {
         "php": "^7.1.3",
@@ -18,15 +23,17 @@
     },
     "extra": {
         "shopware-plugin-class": "Rr\\OmniEnablement\\RrOmniEnablement",
-        "copyright": "(c) by shopgate",
+        "copyright": "(c) by Shopgate GmbH",
         "label":{
-             "de-DE":"Retail.red omni enablement",
-             "en-GB":"Retail.red omni enablement"
+             "de-DE":"retail.red for Shopware 6",
+             "en-GB":"retail.red for Shopware 6"
          },
         "description":{
              "de-DE":"",
              "en-GB":""
-         }
+         },
+        "manufacturerLink": "",
+        "supportLink": ""
     },
     "autoload": {
         "psr-4": {

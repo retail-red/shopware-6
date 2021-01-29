@@ -3,7 +3,7 @@
 {% block base_head %}
     {{ parent() }}
 
-    <script type='text/javascript' src='https://cdn.retail.red/omni-enablement/retailred-quickreserve-0.1.1-8.js'></script>
+    <script type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v1.js'></script>
     <script type="text/javascript">
         try {
             window.addEventListener('load', function () {
@@ -11,7 +11,7 @@
                 localization.countries = {{ shopware.config.RrOmniEnablement.config.countries|default(['de'])|json_encode|raw }};
                 var variants = {{ page.product.variation|default([])|json_encode|raw }};
 
-                var retailred = window.RetailRedEnablement.create({
+                var retailred = window.RetailRedStorefront.create({
                     apiKey: '{{ shopware.config.RrOmniEnablement.config.apiKey }}',
                     apiStage: '{{ shopware.config.RrOmniEnablement.config.apiStage }}',
                     unitSystem: '{{ shopware.config.RrOmniEnablement.config.unitSystem }}',

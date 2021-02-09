@@ -22,7 +22,7 @@
         "optimize-autoloader": true
     },
     "extra": {
-        "shopware-plugin-class": "Rr\\OmniEnablement\\RrOmniEnablement",
+        "shopware-plugin-class": "RetailRed\\OmniEnablement\\RetailRedOmniEnablement",
         "copyright": "(c) by Shopgate GmbH",
         "label":{
              "de-DE":"retail.red for Shopware 6",
@@ -37,7 +37,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Rr\\OmniEnablement\\": "src/"
+            "RetailRed\\OmniEnablement\\": "src/"
         }
     }
 }

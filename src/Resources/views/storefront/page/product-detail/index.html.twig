@@ -7,23 +7,23 @@
     <script type="text/javascript">
         try {
             window.addEventListener('load', function () {
-                var localization = {{ shopware.config.RrOmniEnablement.config.translations|raw|default('null') }} || {};
-                localization.countries = {{ shopware.config.RrOmniEnablement.config.countries|default(['de'])|json_encode|raw }};
+                var localization = {{ shopware.config.RetailRedOmniEnablement.config.translations|raw|default('null') }} || {};
+                localization.countries = {{ shopware.config.RetailRedOmniEnablement.config.countries|default(['de'])|json_encode|raw }};
                 var variants = {{ page.product.variation|default([])|json_encode|raw }};
 
                 var retailred = window.RetailRedStorefront.create({
-                    apiKey: '{{ shopware.config.RrOmniEnablement.config.apiKey }}',
-                    apiStage: '{{ shopware.config.RrOmniEnablement.config.apiStage }}',
-                    unitSystem: '{{ shopware.config.RrOmniEnablement.config.unitSystem }}',
+                    apiKey: '{{ shopware.config.RetailRedOmniEnablement.config.apiKey }}',
+                    apiStage: '{{ shopware.config.RetailRedOmniEnablement.config.apiStage }}',
+                    unitSystem: '{{ shopware.config.RetailRedOmniEnablement.config.unitSystem }}',
                     localization: localization,
                     inventory: {
-                        hideNumber: {{ shopware.config.RrOmniEnablement.config.inventoryHideNumber | json_encode }},
-                        showExactUntil: {{ shopware.config.RrOmniEnablement.config.inventoryShowExactUntil|default('null') }},
-                        showLowUntil: {{ shopware.config.RrOmniEnablement.config.inventoryShowLowUntil }},
+                        hideNumber: {{ shopware.config.RetailRedOmniEnablement.config.inventoryHideNumber | json_encode }},
+                        showExactUntil: {{ shopware.config.RetailRedOmniEnablement.config.inventoryShowExactUntil|default('null') }},
+                        showLowUntil: {{ shopware.config.RetailRedOmniEnablement.config.inventoryShowLowUntil }},
                     },
                     legal: {
-                        terms: {{ shopware.config.RrOmniEnablement.config.termsLink|default(null)|json_encode }},
-                        privacy: {{ shopware.config.RrOmniEnablement.config.privacyLink|default(null)|json_encode }},
+                        terms: {{ shopware.config.RetailRedOmniEnablement.config.termsLink|default(null)|json_encode }},
+                        privacy: {{ shopware.config.RetailRedOmniEnablement.config.privacyLink|default(null)|json_encode }},
                     },
                     customer: {
                         code: '{{ context.customer.customerNumber }}',

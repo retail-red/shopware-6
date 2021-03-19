@@ -48,7 +48,13 @@
                     },
                 });
 
-                retailred.renderReserveButton('#rr-dropin');
+                {% if not shopware.config.RetailRedOmniEnablement.config.renderLiveInventory %}
+                    retailred.renderReserveButton('#rr-reserve-button')
+                {% else %}
+                    retailred.renderLiveInventory('#rr-live-inventory', {
+                      variant: '{{ shopware.config.RetailRedOmniEnablement.config.renderLiveInventoryMode }}'
+                    });
+                {% endif %}
 
                 $('.product-detail-quantity-select').change(function() {
                     retailred.updateConfig({

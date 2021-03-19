@@ -61,6 +61,33 @@
         </input-field>
 
         <input-field type="bool">
+            <name>renderLiveInventory</name>
+            <label>Render live inventory</label>
+            <helpText>Display the product inventory directly in the Product Details Page and lets the user start the reservation flow.</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>renderLiveInventoryMode</name>
+            <label>Live inventory render mode</label>
+            <helpText>
+                When set to "modal" (default behavior) the user can choose a store using the retail.red store list modal. This is recommended if you have many stores in different locations.
+                When set to "list" the user can choose a store using simple dropdown without the overhead of going through the store list modal. This is recommended if you have less than 10 locations available
+            </helpText>
+            <defaultValue>modal</defaultValue>
+            <options>
+                <option>
+                    <id>modal</id>
+                    <name>modal</name>
+                </option>
+                <option>
+                    <id>list</id>
+                    <name>list</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="bool">
             <name>inventoryHideNumber</name>
             <label>Hide stock</label>
             <helpText>Hides the stock number and therefore display only if the product is available or not.</helpText>

@@ -1,5 +1,6 @@
 {% sw_extends '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
 {% block page_product_detail_buy_button %}
+    {% if shopware.config.RetailRedOmniEnablement.config.displayType != 'disabled' %}
     <style type="text/css">
         .rr-wrapper {
             display: flex;
@@ -32,4 +33,7 @@
         <div id="rr-reserve-button"></div>
         <div id="rr-live-inventory"></div>
    </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}

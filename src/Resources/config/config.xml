@@ -60,29 +60,50 @@
             </options>
         </input-field>
 
-        <input-field type="bool">
-            <name>renderLiveInventory</name>
-            <label>Render live inventory</label>
-            <helpText>Display the product inventory directly in the Product Details Page and lets the user start the reservation flow.</helpText>
-            <defaultValue>false</defaultValue>
+        <input-field type="single-select">
+            <name>displayType</name>
+            <label>Display on product detail page</label>
+            <helpText>
+                Choose what should be displayed on the product detail page.
+                Reservation button - A button that opens a popup with a store list and the availability of the selected product in these stores.
+                Availability in store - A box that directly shows the availability of the product in the store.
+                The customer has to select a store the first time.
+            </helpText>
+            <defaultValue>reserveButton</defaultValue>
+            <options>
+                <option>
+                    <id>disabled</id>
+                    <name>Disabled</name>
+                </option>
+                <option>
+                    <id>reserveButton</id>
+                    <name>Show reservation button</name>
+                </option>
+                <option>
+                    <id>liveInventory</id>
+                    <name>Show availability in store</name>
+                </option>
+            </options>
         </input-field>
 
         <input-field type="single-select">
             <name>renderLiveInventoryMode</name>
-            <label>Live inventory render mode</label>
+            <label>Store selection</label>
             <helpText>
-                When set to "modal" (default behavior) the user can choose a store using the retail.red store list modal. This is recommended if you have many stores in different locations.
-                When set to "list" the user can choose a store using simple dropdown without the overhead of going through the store list modal. This is recommended if you have less than 10 locations available
+                Only relevant if "Show availability in store" is selected above. Choose how the customer can select his store.
+                Modal - Opens a popup where the customer can search for his store via zip code or geolocation.
+                Also shows address, distance and opening hours if available.
+                Dropdown - A simple dropdown where the customer can choose the store from. Recommended only for small amount of stores.
             </helpText>
             <defaultValue>modal</defaultValue>
             <options>
                 <option>
                     <id>modal</id>
-                    <name>modal</name>
+                    <name>Modal</name>
                 </option>
                 <option>
                     <id>list</id>
-                    <name>list</name>
+                    <name>Dropdown</name>
                 </option>
             </options>
         </input-field>

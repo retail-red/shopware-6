@@ -1,7 +1,7 @@
 {
     "name": "retailred/omni-enablement",
     "description": "",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "authors": [
@@ -32,8 +32,16 @@
              "de-DE":"",
              "en-GB":""
          },
-        "manufacturerLink": "https://retail.red/",
-        "supportLink": ""
+        "manufacturerLink":
+            {
+                "de-DE":"https://retail.red/",
+                "en-GB":"https://retail.red/"
+
+        },
+        "supportLink": {
+            "de-DE":"https://retail.red/",
+            "en-GB":"https://retail.red/"
+        }
     },
     "autoload": {
         "psr-4": {

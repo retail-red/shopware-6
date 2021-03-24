@@ -60,6 +60,54 @@
             </options>
         </input-field>
 
+        <input-field type="single-select">
+            <name>displayType</name>
+            <label>Display on product detail page</label>
+            <helpText>
+                Choose what should be displayed on the product detail page.
+                Reservation button - A button that opens a popup with a store list and the availability of the selected product in these stores.
+                Availability in store - A box that directly shows the availability of the product in the store.
+                The customer has to select a store the first time.
+            </helpText>
+            <defaultValue>reserveButton</defaultValue>
+            <options>
+                <option>
+                    <id>disabled</id>
+                    <name>Disabled</name>
+                </option>
+                <option>
+                    <id>reserveButton</id>
+                    <name>Show reservation button</name>
+                </option>
+                <option>
+                    <id>liveInventory</id>
+                    <name>Show availability in store</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>renderLiveInventoryMode</name>
+            <label>Store selection</label>
+            <helpText>
+                Only relevant if "Show availability in store" is selected above. Choose how the customer can select his store.
+                Modal - Opens a popup where the customer can search for his store via zip code or geolocation.
+                Also shows address, distance and opening hours if available.
+                Dropdown - A simple dropdown where the customer can choose the store from. Recommended only for small amount of stores.
+            </helpText>
+            <defaultValue>modal</defaultValue>
+            <options>
+                <option>
+                    <id>modal</id>
+                    <name>Modal</name>
+                </option>
+                <option>
+                    <id>list</id>
+                    <name>Dropdown</name>
+                </option>
+            </options>
+        </input-field>
+
         <input-field type="bool">
             <name>inventoryHideNumber</name>
             <label>Hide stock</label>

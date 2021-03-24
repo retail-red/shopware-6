@@ -3,6 +3,7 @@
 {% block base_head %}
     {{ parent() }}
 
+    {% if shopware.config.RetailRedOmniEnablement.config.displayType != 'disabled' %}
     <script type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v1.js'></script>
     <script type="text/javascript">
         try {
@@ -48,7 +49,13 @@
                     },
                 });
 
-                retailred.renderReserveButton('#rr-dropin');
+                {% if shopware.config.RetailRedOmniEnablement.config.displayType == 'reserveButton' %}
+                    retailred.renderReserveButton('#rr-reserve-button')
+                {% elseif shopware.config.RetailRedOmniEnablement.config.displayType == 'liveInventory' %}
+                    retailred.renderLiveInventory('#rr-live-inventory', {
+                      variant: '{{ shopware.config.RetailRedOmniEnablement.config.renderLiveInventoryMode }}'
+                    });
+                {% endif %}
 
                 $('.product-detail-quantity-select').change(function() {
                     retailred.updateConfig({
@@ -62,4 +69,5 @@
             console.error(e);
         }
     </script>
+    {% endif %}
 {% endblock %}

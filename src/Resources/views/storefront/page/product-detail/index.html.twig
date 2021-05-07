@@ -15,6 +15,9 @@
                 var retailred = window.RetailRedStorefront.create({
                     apiKey: '{{ shopware.config.RetailRedOmniEnablement.config.apiKey }}',
                     apiStage: '{{ shopware.config.RetailRedOmniEnablement.config.apiStage }}',
+                    useGeolocationImmediately: {{ shopware.config.RetailRedOmniEnablement.config.useGeolocationImmediately | json_encode }},
+                    browserHistory: {{ shopware.config.RetailRedOmniEnablement.config.browserHistory | json_encode }},
+                    testMode: {{ shopware.config.RetailRedOmniEnablement.config.testMode | json_encode }},
                     unitSystem: '{{ shopware.config.RetailRedOmniEnablement.config.unitSystem }}',
                     localization: localization,
                     inventory: {

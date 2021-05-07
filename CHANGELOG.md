@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.2.0] - 2021-05-07
+### Added
+- new configs: useGeolocationImmediately, browserHistory, testMode
+
 ## [1.1.0] - 2021-03-19
 ### Added
 - Render live inventory on PDP

@@ -28,6 +28,33 @@
             </options>
         </input-field>
 
+        <input-field type="bool">
+            <name>browserHistory</name>
+            <label>Use browser history</label>
+            <helpText>
+                If enabled the browsers history will be used within the reservation modal allowing the users to navigate with the native controls. Can be disabled when your store is already using the browsers history internally and the modals history conflicts with it.
+            </helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>useGeolocationImmediately</name>
+            <label>Use Geolocation immediately</label>
+            <helpText>
+                If enabled, whenever the user opens the store list the browsers geolocation will be requested immediately instead of only after pressing the locate me button.
+            </helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>testMode</name>
+            <label>Testmode</label>
+            <helpText>
+                When set to true no buttons will be rendered within the users browser, till the page was once opened with a query parameter like rrTesting=start. A testing session can be stopped by opening the page with rrTesting=end
+            </helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
         <input-field type="single-select">
             <name>unitSystem</name>
             <label>Units</label>

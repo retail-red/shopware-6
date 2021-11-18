@@ -47,9 +47,16 @@
                         price: {{ page.product.calculatedPrice.unitPrice }},
                         currencyCode: '{{ context.currency.isoCode }}',
                         options: variants.map(function (variant) {
+                            if (!product.sortedProperties) {
+                                return
+                            }
                             const sortedProperty = product.sortedProperties.find(function(sortedProperty) {
                                 return sortedProperty.name === variant.group
                             })
+
+                            if (!sortedProperty || !sortedProperty.options) {
+                                return
+                            }
                             const variantDetails = sortedProperty.options.find(function(sortedPropertyOption) {
                                 return variant.option === sortedPropertyOption.name
                             })
@@ -62,7 +69,7 @@
                                     name: variantDetails.name
                                 }
                             }
-                        })
+                        }).filter(Boolean)
                     },
                 });
 

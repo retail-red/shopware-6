@@ -48,15 +48,19 @@
                         currencyCode: '{{ context.currency.isoCode }}',
                         options: variants.map(function (variant) {
                             if (!product.sortedProperties) {
-                                return
+                                return {
+                                    code: variant.group,
+                                    name: variant.group,
+                                    value: {
+                                        code: variant.option,
+                                        name: variant.option
+                                    }
+                                }
                             }
                             const sortedProperty = product.sortedProperties.find(function(sortedProperty) {
                                 return sortedProperty.name === variant.group
                             })
 
-                            if (!sortedProperty || !sortedProperty.options) {
-                                return
-                            }
                             const variantDetails = sortedProperty.options.find(function(sortedPropertyOption) {
                                 return variant.option === sortedPropertyOption.name
                             })

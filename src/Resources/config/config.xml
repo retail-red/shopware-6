@@ -13,6 +13,23 @@
         </input-field>
 
         <input-field type="single-select">
+            <name>productCodeMapping</name>
+            <label lang="de-DE">Als Product Code verwenden</label>
+            <label lang="en-US">Use as product code</label>
+            <defaultValue>ean</defaultValue>
+            <options>
+                <option>
+                    <id>ean</id>
+                    <name>EAN</name>
+                </option>
+                <option>
+                    <id>ordernumber</id>
+                    <name>Order Number</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
             <name>apiStage</name>
             <label>Stage</label>
             <defaultValue>production</defaultValue>

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.3.0] - 2021-11-20
+### Changed
+- fixed the configs to match the retail.red api version
+
 ## [1.2.0] - 2021-05-07
 ### Added
 - new configs: useGeolocationImmediately, browserHistory, testMode

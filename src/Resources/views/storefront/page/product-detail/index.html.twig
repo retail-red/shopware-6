@@ -1,5 +1,7 @@
 {% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
 
+{% set productCodeMapping = config('RetailRedOmniEnablement.config.productCodeMapping') %}
+
 {% block base_head %}
     {{ parent() }}
 
@@ -8,26 +10,27 @@
     <script type="text/javascript">
         try {
             window.addEventListener('load', function () {
-                var localization = {{ shopware.config.RetailRedOmniEnablement.config.translations|raw|default('null') }} || {};
-                localization.countries = {{ shopware.config.RetailRedOmniEnablement.config.countries|default(['de'])|json_encode|raw }};
+                var localization = {{ config('RetailRedOmniEnablement.config.translations')|raw|default('null') }} || {};
+                localization.countries = {{ config('RetailRedOmniEnablement.config.countries')|default(['de'])|json_encode|raw }};
                 var variants = {{ page.product.variation|default([])|json_encode|raw }};
+                var product = {{ page.product|json_encode|raw }}
 
                 var retailred = window.RetailRedStorefront.create({
-                    apiKey: '{{ shopware.config.RetailRedOmniEnablement.config.apiKey }}',
-                    apiStage: '{{ shopware.config.RetailRedOmniEnablement.config.apiStage }}',
-                    useGeolocationImmediately: {{ shopware.config.RetailRedOmniEnablement.config.useGeolocationImmediately | json_encode }},
-                    browserHistory: {{ shopware.config.RetailRedOmniEnablement.config.browserHistory | json_encode }},
-                    testMode: {{ shopware.config.RetailRedOmniEnablement.config.testMode | json_encode }},
-                    unitSystem: '{{ shopware.config.RetailRedOmniEnablement.config.unitSystem }}',
+                    apiKey: '{{ config('RetailRedOmniEnablement.config.apiKey') }}',
+                    apiStage: '{{ config('RetailRedOmniEnablement.config.apiStage') }}',
+                    useGeolocationImmediately: {{ config('RetailRedOmniEnablement.config.useGeolocationImmediately') | json_encode }},
+                    browserHistory: {{ config('RetailRedOmniEnablement.config.browserHistory') | json_encode }},
+                    testMode: {{ config('RetailRedOmniEnablement.config.testMode') | json_encode }},
+                    unitSystem: '{{ config('RetailRedOmniEnablement.config.unitSystem') }}',
                     localization: localization,
                     inventory: {
-                        hideNumber: {{ shopware.config.RetailRedOmniEnablement.config.inventoryHideNumber | json_encode }},
-                        showExactUntil: {{ shopware.config.RetailRedOmniEnablement.config.inventoryShowExactUntil|default('null') }},
-                        showLowUntil: {{ shopware.config.RetailRedOmniEnablement.config.inventoryShowLowUntil }},
+                        hideNumber: {{ config('RetailRedOmniEnablement.config.inventoryHideNumber') | json_encode }},
+                        showExactUntil: {{ config('RetailRedOmniEnablement.config.inventoryShowExactUntil') |default('null') }},
+                        showLowUntil: {{ config('RetailRedOmniEnablement.config.inventoryShowLowUntil') |default('null') }},
                     },
                     legal: {
-                        terms: {{ shopware.config.RetailRedOmniEnablement.config.termsLink|default(null)|json_encode }},
-                        privacy: {{ shopware.config.RetailRedOmniEnablement.config.privacyLink|default(null)|json_encode }},
+                        terms: {{ config('RetailRedOmniEnablement.config.termsLink') |default(null)|json_encode }},
+                        privacy: {{ config('RetailRedOmniEnablement.config.privacyLink') |default(null)|json_encode }},
                     },
                     customer: {
                         code: '{{ context.customer.customerNumber }}',
@@ -37,26 +40,48 @@
                         emailAddress: '{{ context.customer.email }}',
                     },
                     product: {
-                        code: '{{ page.product.productNumber }}',
+                        code: '{% if productCodeMapping == 'ean' %}{{ page.product.ean }}{% else %}{{ page.product.productNumber }}{% endif %}',
                         name: '{{ page.product.translated.name }}',
                         quantity: {{ page.product.calculatedPrice.quantity }},
                         imageUrl: '{{ page.product.cover.media.url }}',
                         price: {{ page.product.calculatedPrice.unitPrice }},
                         currencyCode: '{{ context.currency.isoCode }}',
                         options: variants.map(function (variant) {
+                            if (!product.sortedProperties) {
+                                return {
+                                    code: variant.group,
+                                    name: variant.group,
+                                    value: {
+                                        code: variant.option,
+                                        name: variant.option
+                                    }
+                                }
+                            }
+                            const sortedProperty = product.sortedProperties.find(function(sortedProperty) {
+                                return sortedProperty.name === variant.group
+                            })
+
+                            const variantDetails = sortedProperty.options.find(function(sortedPropertyOption) {
+                                return variant.option === sortedPropertyOption.name
+                            })
+
                             return {
-                                name: variant.group,
-                                value: variant.option,
-                            };
-                        })
+                                code: sortedProperty.id,
+                                name: sortedProperty.name,
+                                value: {
+                                    code: variantDetails.id,
+                                    name: variantDetails.name
+                                }
+                            }
+                        }).filter(Boolean)
                     },
                 });
 
-                {% if shopware.config.RetailRedOmniEnablement.config.displayType == 'reserveButton' %}
+                {% if config('RetailRedOmniEnablement.config.displayType') == 'reserveButton' %}
                     retailred.renderReserveButton('#rr-reserve-button')
-                {% elseif shopware.config.RetailRedOmniEnablement.config.displayType == 'liveInventory' %}
+                {% elseif config('RetailRedOmniEnablement.config.displayType') == 'liveInventory' %}
                     retailred.renderLiveInventory('#rr-live-inventory', {
-                      variant: '{{ shopware.config.RetailRedOmniEnablement.config.renderLiveInventoryMode }}'
+                      variant: '{{ config('RetailRedOmniEnablement.config.renderLiveInventoryMode') }}'
                     });
                 {% endif %}
 

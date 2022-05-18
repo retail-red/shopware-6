@@ -1,6 +1,6 @@
 {% sw_extends '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
 {% block page_product_detail_buy_button %}
-    {% if shopware.config.RetailRedOmniEnablement.config.displayType != 'disabled' %}
+    {% if shopware.config.SgateClickAndReserveSW6.config.displayType != 'disabled' %}
     <style type="text/css">
         .rr-wrapper {
             display: flex;
@@ -23,7 +23,7 @@
         }
 
         #rr-omni #rr-omni-custom, #rr-omni-reserve-button {
-            {{ shopware.config.RetailRedOmniEnablement.config.colors }}
+            {{ shopware.config.SgateClickAndReserveSW6.config.colors }}
         }
     </style>
    <div class="rr-wrapper">

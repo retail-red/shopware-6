@@ -45,6 +45,45 @@
             </options>
         </input-field>
 
+        <input-field type="single-select">
+            <name>saveCustomerData</name>
+            <label lang="de-DE">Speicherung von Kundendaten</label>
+            <label>Save user data</label>
+            <helpText>
+                Controls how user data is persisted within the localStorage.
+                Can be one of "off" (data will not be saved),
+                "on" (data will be saved in any case),
+                "Checkbox" (users can decide via a checkbox on the reservation page)
+                "Consent Manager"
+            </helpText>
+            <helpText lang="de-DE">
+               Legt fest wie die Benutzerdaten im localstorage persistiert werden. Mögliche Werte sind:
+               "off" (Daten werden nicht gespeichert),
+               "on" (Daten werden gespeichert),
+               "checkbox" (Nutzer kann selbst bestimmen),
+               "consent manager",
+           </helpText>
+            <defaultValue>on</defaultValue>
+            <options>
+                <option>
+                    <id>on</id>
+                    <name>On</name>
+                </option>
+                <option>
+                    <id>off</id>
+                    <name>Off</name>
+                </option>
+                <option>
+                    <id>checkbox</id>
+                    <name>Checkbox</name>
+                </option>
+                <option>
+                    <id>consentManager</id>
+                    <name>Shopware Consent Manager</name>
+                </option>
+            </options>
+        </input-field>
+
         <input-field type="bool">
             <name>browserHistory</name>
             <label>Use browser history</label>
@@ -195,16 +234,28 @@
             <label>Colors</label>
             <helpText>Please use only the 3 numbers of rgb schema. rgb(1,2,3) -> 1,2,3</helpText>
             <defaultValue>
+                /* Color for common text */
+                --rr-color-text: #000;
+                /* Color for text with a medium emphasis */
+                --rr-color-text-medium-emphasis: #787878;
                 /* Primary color used for form elements and buttons */
-                --color-primary: 0, 0, 0;
+                --rr-color-primary: #000;
+                /* Contrast color for the primary color - used as button text color  */
+                --rr-color-primary-contrast: #fff;
                 /* Color used for links */
-                --color-link: 60, 155, 181;
+                --rr-color-link: #3c9bb5;
+                /* Text color for disabled buttons */
+                --rr-color-button-disabled: #7f7f7f;
+                /* Background color for disabled buttons */
+                --rr-color-button-background-disabled: #E0E0E0;
                 /* Color used for alerting texts like errors */
-                --color-state-alarm : 176, 0, 32;
+                --rr-color-state-alarm : #b00020;
                 /* Color used for highlighting problems like low stock */
-                --color-state-warning: 241, 156, 69;
-                /* Color used for positve highlighting like successful reservation text. */
-                --color-state-success: 50, 172, 92;
+                --rr-color-state-warning: #f19c45;
+                /* Color used for positive highlighting like successful reservation text */
+                --rr-color-state-success: #32ac5c;
+                /* Font family for the modal */
+                --rr-font-family: inherit
             </defaultValue>
         </input-field>
     </card>

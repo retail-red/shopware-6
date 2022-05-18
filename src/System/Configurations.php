@@ -15,7 +15,6 @@ class Configurations extends Struct
     public const COOKIE_DEFAULT_OPTION_ENABLED = 'on';
     public const COOKIE_DEFAULT_OPTION_DISABLED = 'off';
     public const COOKIE_DEFAULT_OPTION_CHECKBOX = 'checkbox';
-    public const COOKIE_DEFAULT_OPTION_SW_CONSENT = 'sw_consent';
     
     /** @var SystemConfigService */
     private $configService;

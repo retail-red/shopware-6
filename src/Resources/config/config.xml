@@ -15,7 +15,7 @@
         <input-field type="single-select">
             <name>productCodeMapping</name>
             <label lang="de-DE">Als Product Code verwenden</label>
-            <label lang="en-US">Use as product code</label>
+            <label>Use as product code</label>
             <defaultValue>ean</defaultValue>
             <options>
                 <option>

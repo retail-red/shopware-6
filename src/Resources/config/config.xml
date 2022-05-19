@@ -10,6 +10,8 @@
             <name>apiKey</name>
             <label>Storefront API Key</label>
             <copyable>true</copyable>
+            <helpText>Please test the connection in your Shopgate account.</helpText>
+            <helpText lang="de-DE">Verbindung im Shopgate Händlerbereich testen.</helpText>
         </input-field>
 
         <input-field type="single-select">

@@ -53,17 +53,17 @@
             <label>Save user data</label>
             <helpText>
                 Controls how user data is persisted within the localStorage.
-                Can be one of "off" (data will not be saved),
-                "on" (data will be saved in any case),
+                Can be one of "Off" (data will not be saved),
+                "On" (data will be saved in any case),
                 "Checkbox" (users can decide via a checkbox on the reservation page)
-                "Consent Manager"
+                "Shopware Consent Manager"
             </helpText>
             <helpText lang="de-DE">
                Legt fest wie die Benutzerdaten im localstorage persistiert werden. Mögliche Werte sind:
-               "off" (Daten werden nicht gespeichert),
-               "on" (Daten werden gespeichert),
-               "checkbox" (Nutzer kann selbst bestimmen),
-               "consent manager",
+               "Off" (Daten werden nicht gespeichert),
+               "On" (Daten werden gespeichert),
+               "Checkbox" (Nutzer kann selbst bestimmen),
+               "Shopware Consent Manager",
            </helpText>
             <defaultValue>on</defaultValue>
             <options>

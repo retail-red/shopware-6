@@ -1,36 +1,37 @@
 {% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
 
-{% set productCodeMapping = config('RetailRedOmniEnablement.config.productCodeMapping') %}
+{% set productCodeMapping = config('SgateClickAndReserveSW6.config.productCodeMapping') %}
 
 {% block base_head %}
     {{ parent() }}
 
-    {% if shopware.config.RetailRedOmniEnablement.config.displayType != 'disabled' %}
-    <script type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v1.js'></script>
+    {% if shopware.config.SgateClickAndReserveSW6.config.displayType != 'disabled' %}
+    <script async type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v2.js'></script>
     <script type="text/javascript">
         try {
             window.addEventListener('load', function () {
-                var localization = {{ config('RetailRedOmniEnablement.config.translations')|raw|default('null') }} || {};
-                localization.countries = {{ config('RetailRedOmniEnablement.config.countries')|default(['de'])|json_encode|raw }};
+                var localization = {{ config('SgateClickAndReserveSW6.config.translations')|raw|default('null') }} || {};
+                localization.countries = {{ config('SgateClickAndReserveSW6.config.countries')|default(['de'])|json_encode|raw }};
                 var variants = {{ page.product.variation|default([])|json_encode|raw }};
                 var product = {{ page.product|json_encode|raw }}
 
                 var retailred = window.RetailRedStorefront.create({
-                    apiKey: '{{ config('RetailRedOmniEnablement.config.apiKey') }}',
-                    apiStage: '{{ config('RetailRedOmniEnablement.config.apiStage') }}',
-                    useGeolocationImmediately: {{ config('RetailRedOmniEnablement.config.useGeolocationImmediately') | json_encode }},
-                    browserHistory: {{ config('RetailRedOmniEnablement.config.browserHistory') | json_encode }},
-                    testMode: {{ config('RetailRedOmniEnablement.config.testMode') | json_encode }},
-                    unitSystem: '{{ config('RetailRedOmniEnablement.config.unitSystem') }}',
+                    apiKey: '{{ config('SgateClickAndReserveSW6.config.apiKey') }}',
+                    apiStage: '{{ config('SgateClickAndReserveSW6.config.apiStage') }}',
+                    useGeolocationImmediately: {{ config('SgateClickAndReserveSW6.config.useGeolocationImmediately') | json_encode }},
+                    browserHistory: {{ config('SgateClickAndReserveSW6.config.browserHistory') | json_encode }},
+                    testMode: {{ config('SgateClickAndReserveSW6.config.testMode') | json_encode }},
+                    unitSystem: '{{ config('SgateClickAndReserveSW6.config.unitSystem') }}',
+                    saveCustomerData: '{{ config('SgateClickAndReserveSW6.config.saveCustomerData') === 'consentManager' ? (document.cookie.indexOf('sg-save-customer-data-enabled=') !== -1 ? 'on' : 'off') : config('SgateClickAndReserveSW6.config.saveCustomerData') }}',
                     localization: localization,
                     inventory: {
-                        hideNumber: {{ config('RetailRedOmniEnablement.config.inventoryHideNumber') | json_encode }},
-                        showExactUntil: {{ config('RetailRedOmniEnablement.config.inventoryShowExactUntil') |default('null') }},
-                        showLowUntil: {{ config('RetailRedOmniEnablement.config.inventoryShowLowUntil') |default('null') }},
+                        hideNumber: {{ config('SgateClickAndReserveSW6.config.inventoryHideNumber') | json_encode }},
+                        showExactUntil: {{ config('SgateClickAndReserveSW6.config.inventoryShowExactUntil') |default('null') }},
+                        showLowUntil: {{ config('SgateClickAndReserveSW6.config.inventoryShowLowUntil') |default('null') }},
                     },
                     legal: {
-                        terms: {{ config('RetailRedOmniEnablement.config.termsLink') |default(null)|json_encode }},
-                        privacy: {{ config('RetailRedOmniEnablement.config.privacyLink') |default(null)|json_encode }},
+                        terms: {{ config('SgateClickAndReserveSW6.config.termsLink') |default(null)|json_encode }},
+                        privacy: {{ config('SgateClickAndReserveSW6.config.privacyLink') |default(null)|json_encode }},
                     },
                     customer: {
                         code: '{{ context.customer.customerNumber }}',
@@ -77,11 +78,11 @@
                     },
                 });
 
-                {% if config('RetailRedOmniEnablement.config.displayType') == 'reserveButton' %}
+                {% if config('SgateClickAndReserveSW6.config.displayType') == 'reserveButton' %}
                     retailred.renderReserveButton('#rr-reserve-button')
-                {% elseif config('RetailRedOmniEnablement.config.displayType') == 'liveInventory' %}
+                {% elseif config('SgateClickAndReserveSW6.config.displayType') == 'liveInventory' %}
                     retailred.renderLiveInventory('#rr-live-inventory', {
-                      variant: '{{ config('RetailRedOmniEnablement.config.renderLiveInventoryMode') }}'
+                      variant: '{{ config('SgateClickAndReserveSW6.config.renderLiveInventoryMode') }}'
                     });
                 {% endif %}
 

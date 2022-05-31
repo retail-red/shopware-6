@@ -29,8 +29,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/retail-red/shopware-6/compare/1.4.0...HEAD
-[1.4.0]: https://github.com/retail-red/shopware-6/compare/1.3.0...1.4.0
-[1.3.0]: https://github.com/retail-red/shopware-6/compare/1.2.0...1.3.0
-[1.2.0]: https://github.com/retail-red/shopware-6/compare/1.1.0...1.2.0
-[1.1.0]: https://github.com/retail-red/shopware-6/compare/1.0.0...1.1.0
+[Unreleased]: https://github.com/retail-red/shopware-6/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/retail-red/shopware-6/compare/v1.3.0...v1.4.0
+[1.3.0]: https://github.com/retail-red/shopware-6/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/retail-red/shopware-6/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/retail-red/shopware-6/compare/v1.0.0...v1.1.0

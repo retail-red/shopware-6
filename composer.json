@@ -1,9 +1,9 @@
 {
     "name": "shopgate/click-and-reserve-shopware6",
-    "description": "",
+    "description": "Shopgate - Click & Reserve",
     "version": "1.4.0",
     "type": "shopware-platform-plugin",
-    "license": "MIT",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Shopgate GmbH",
@@ -16,7 +16,6 @@
         "shopware/core": "^6.3.0",
         "shopware/storefront": "^6.3.0"
     },
-    "require-dev": {},
     "config": {
         "sort-packages": true,
         "optimize-autoloader": true
@@ -29,8 +28,8 @@
              "en-GB":"Shopgate - Click & Reserve"
          },
         "description":{
-             "de-DE":"",
-             "en-GB":""
+             "de-DE":"Mit Click & Reserve können Kund*innen Waren online reservieren und lokal abholen. Das reduziert nachweislich die Retouren- und Abbruchraten und bringt Ihre Kundschaft in Ihre Filialen!",
+             "en-GB":"With click & reserve, customers can reserve goods online and pick them up locally. This has been proven to reduce return and abandonment rates and bring your customers into your stores!"
          },
         "manufacturerLink":
             {

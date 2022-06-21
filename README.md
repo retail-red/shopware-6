@@ -16,6 +16,10 @@ You will find your key in our admin in Settings -> General -> Storefront API Key
 All other settings are optional. 
 More details can be found here https://github.com/retail-red/storefront-library 
 
+## Developer note
+For SW marketplace upload you need to zip this repository like this
+zip -r SgateClickAndReserveSW6.zip SgateClickAndReserveSW6 -x ".*" -x "__MACOSX"
+
 ## Support
 Contact us via [mail@retail.red](mailto:mail@retail.red)
 

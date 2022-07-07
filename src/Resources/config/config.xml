@@ -59,11 +59,11 @@
                 "Shopware Consent Manager"
             </helpText>
             <helpText lang="de-DE">
-               Legt fest wie die Benutzerdaten im localstorage persistiert werden. Mögliche Werte sind:
+               Legt fest ob und wie die Kundendaten im localstorage persistiert werden. Mögliche Werte sind:
                "Off" (Daten werden nicht gespeichert),
                "On" (Daten werden gespeichert),
-               "Checkbox" (Nutzer kann selbst bestimmen),
-               "Shopware Consent Manager",
+               "Checkbox" (Nutzer kann die Option im Formular wählen),
+               "Shopware Consent Manager (Nutzer gibt Zustimmung über den Shopware Consent Manager)",
            </helpText>
             <defaultValue>on</defaultValue>
             <options>
@@ -92,6 +92,7 @@
             <helpText>
                 If enabled the browsers history will be used within the reservation modal allowing the users to navigate with the native controls. Can be disabled when your store is already using the browsers history internally and the modals history conflicts with it.
             </helpText>
+                <helpText lang="de-DE">Sobald aktiviert, kann der Nutzer die Browser Historie zur Navigation im Reservierungs-Prozess nutzen.</helpText>
             <defaultValue>true</defaultValue>
         </input-field>
 
@@ -101,6 +102,7 @@
             <helpText>
                 If enabled, whenever the user opens the store list the browsers geolocation will be requested immediately instead of only after pressing the locate me button.
             </helpText>
+                <helpText lang="de-DE">Wenn diese Option aktiviert wird, wird der Zugriff auf die Geo Location sofort nach öffnen der Filial-Übersicht angefragt.</helpText>
             <defaultValue>true</defaultValue>
         </input-field>
 
@@ -110,6 +112,7 @@
             <helpText>
                 When set to true no buttons will be rendered within the users browser, till the page was once opened with a query parameter like rrTesting=start. A testing session can be stopped by opening the page with rrTesting=end
             </helpText>
+                <helpText lang="de-DE">Wenn diese Option aktiviert wird, werden keine Buttons auf der Produktdetailseite angezeigt. Um die Buttons anzuzeigen, muss der Parameter "rrTesting=Start" an die URL angehängt werden. Die Test-Session kann durch den Parameter "rrTesting=end" gestoppt werden.</helpText>
             <defaultValue>false</defaultValue>
         </input-field>
 
@@ -133,6 +136,7 @@
             <name>countries</name>
             <label>Countries</label>
             <helpText>Set the available countries for the store list search</helpText>
+                <helpText lang="de-DE">Wählen Sie die verfügbaren Länder für die Filialsuche aus.</helpText>
             <options>
                 <option>
                     <id>de</id>
@@ -154,6 +158,7 @@
                 Availability in store - A box that directly shows the availability of the product in the store.
                 The customer has to select a store the first time.
             </helpText>
+                <helpText lang="de-DE">Wählen Sie welche Version der Reservierung genutzt werden soll: Reservation Button = "Reservieren" Button, welcher die Filialsuche öffnet. Availability in Store = Einmalige Auswahl einer Filiale, sofortige Anzeige des lokalen Bestands.</helpText>
             <defaultValue>reserveButton</defaultValue>
             <options>
                 <option>
@@ -180,6 +185,7 @@
                 Also shows address, distance and opening hours if available.
                 Dropdown - A simple dropdown where the customer can choose the store from. Recommended only for small amount of stores.
             </helpText>
+                <helpText lang="de-DE">Nur relevant, wenn oben "Availability in Store" gewählt wurde. Optionen: Modal = PopUp zur Filialauswahl, Dropdown = Dropdown zur Filialauswahl.</helpText>
             <defaultValue>modal</defaultValue>
             <options>
                 <option>
@@ -197,6 +203,7 @@
             <name>inventoryHideNumber</name>
             <label>Hide stock</label>
             <helpText>Hides the stock number and therefore display only if the product is available or not.</helpText>
+                <helpText lang="de-DE">Blendet den tatsächlichen Bestand aus und zeigt nur "Verfügbar" an.</helpText>
             <defaultValue>false</defaultValue>
         </input-field>
 
@@ -204,12 +211,14 @@
             <name>inventoryShowExactUntil</name>
             <label>Show exact inventory until</label>
             <helpText>If inventory is higher than the given number the inventory will be displayed as "X+ Available"</helpText>
+                <helpText lang="de-DE">Wenn der Beständ höher als angegeben ist, wird "X+ Verfügbar" angezeigt.</helpText>
         </input-field>
 
         <input-field type="int">
             <name>inventoryShowLowUntil</name>
             <label>Show low inventory until</label>
             <helpText>If inventory is lower than the given number the inventory will be displayed in the state-warning color</helpText>
+                <helpText lang="de-DE">Wenn der Beständ niedriger als angegeben ist, wird "X Verfügbar" in der state-warning Farbe angezeigt.</helpText>
             <defaultValue>5</defaultValue>
         </input-field>
 
@@ -217,6 +226,7 @@
             <name>termsLink</name>
             <label>Terms Link</label>
             <helpText>Add an url to the terms and condition page, also enforces the user to accept them before placing an reservation</helpText>
+                <helpText lang="de-DE">Fügen Sie eine URL ein, damit der Kunde die AGB vor Abschluss der Reservierung akzeptieren muss.</helpText>
             <copyable>true</copyable>
         </input-field>
 
@@ -224,6 +234,7 @@
             <name>privacyLink</name>
             <label>Privacy Link</label>
             <helpText>Add an url to the privacy page, also enforces the user to accept them before placing an reservation</helpText>
+                <helpText lang="de-DE">Fügen Sie eine URL ein, damit der Kunde die Datenschutzerklärung vor Abschluss der Reservierung akzeptieren muss.</helpText>
             <copyable>true</copyable>
         </input-field>
     </card>
@@ -235,6 +246,7 @@
             <name>colors</name>
             <label>Colors</label>
             <helpText>Please use only the 3 numbers of rgb schema. rgb(1,2,3) -> 1,2,3</helpText>
+                <helpText lang="de-DE">Bitte nutzen Sie nur die 3 Zahlen des RBG Schemas. rgb(1,2,3) -> 1,2,3</helpText>
             <defaultValue>
                 /* Color for common text */
                 --rr-color-text: #000;
@@ -269,6 +281,7 @@
             <name>translations</name>
             <label>Translations JSON</label>
             <helpText>JSON format. All strings can be found in the github repo</helpText>
+                <helpText lang="de-DE">Alle Strings zur Übersetzung finden Sie auf unserem GitHub Profil.</helpText>
             <placeholder>
             {
                 "de":{

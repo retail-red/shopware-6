@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- to new Shopgate logo
+### Fixed
+- product quantity change was providing data as a string instead of the required integer
 
 ## [1.4.0] - 2022-05-31
 ### Changed

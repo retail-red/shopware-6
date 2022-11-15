@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- replaced retail.red logo with the new one from Shopgate
+### Fixed
+- product quantity sent as a string to the API, number required
 
 ## [1.4.0] - 2022-05-31
 ### Changed

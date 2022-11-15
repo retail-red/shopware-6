@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 ### Changed
-- to new Shopgate logo
+- replaced retail.red logo with the new one from Shopgate
 ### Fixed
 - product quantity change was providing data as a string instead of the required integer
 

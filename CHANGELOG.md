@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 - replaced retail.red logo with the new one from Shopgate
 ### Fixed
-- product quantity change was providing data as a string instead of the required integer
+- product quantity sent as a string to the API, number required
 
 ## [1.4.0] - 2022-05-31
 ### Changed

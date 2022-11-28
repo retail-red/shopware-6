@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- fallback to use Product Number when EAN is not available
 ### Changed
 - replaced retail.red logo with the new one from Shopgate
 ### Fixed

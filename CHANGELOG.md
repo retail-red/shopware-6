@@ -5,10 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- fallback to use Product Number when EAN is not available
 ### Changed
 - replaced retail.red logo with the new one from Shopgate
 ### Fixed
 - product quantity sent as a string to the API, number required
+- issues with data for configuration provided URL's
+- issues with data for single variant children
 
 ## [1.4.0] - 2022-05-31
 ### Changed

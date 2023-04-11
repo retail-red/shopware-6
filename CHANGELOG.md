@@ -5,13 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [1.4.1] - 2023-04-11
 ### Added
-- fallback to use Product Number when EAN is not available
+- fallback to use "Product Number" when EAN is not available
+
 ### Changed
 - replaced retail.red logo with the new one from Shopgate
+
 ### Fixed
 - product quantity sent as a string to the API, number required
-- issues with data for configuration provided URL's
+- issues with data for configuration provided URLs
 - issues with data for single variant children
 
 ## [1.4.0] - 2022-05-31
@@ -37,7 +41,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/retail-red/shopware-6/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/retail-red/shopware-6/compare/v1.4.1...HEAD
+[1.4.1]: https://github.com/retail-red/shopware-6/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/retail-red/shopware-6/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/retail-red/shopware-6/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/retail-red/shopware-6/compare/v1.1.0...v1.2.0

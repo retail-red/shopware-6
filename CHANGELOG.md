@@ -5,8 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-###
-- Added compatibility with Showpare 6.6+
+
+## [1.4.2] - 2025-12-16
+### Added
+- compatibility with Showpare 6.6+
 
 ## [1.4.1] - 2023-04-11
 ### Added
@@ -43,7 +45,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/retail-red/shopware-6/compare/v1.4.1...HEAD
+[Unreleased]: https://github.com/retail-red/shopware-6/compare/v1.4.2...HEAD
+[1.4.1]: https://github.com/retail-red/shopware-6/compare/v1.4.1...v1.4.2
 [1.4.1]: https://github.com/retail-red/shopware-6/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/retail-red/shopware-6/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/retail-red/shopware-6/compare/v1.2.0...v1.3.0

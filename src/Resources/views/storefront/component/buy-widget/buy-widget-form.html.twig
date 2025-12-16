@@ -1,0 +1,42 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget-form.html.twig' %}
+
+{% block buy_widget_buy_button_container %}
+    {% if shopware.config.SgateClickAndReserveSW6.config.displayType != 'disabled' %}
+    <style type="text/css">
+        .rr-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        #rr-reserve-button {
+            flex-grow: 1;
+            margin: 4px;
+        }
+        #rr-omni-reserve-button{
+            width: 100%;
+            line-height: 38px;
+            font-size: 1rem;
+        }
+        .rr-cart {
+            margin: 4px;
+            flex-grow: 1;
+        }
+
+        #rr-omni #rr-omni-custom, #rr-omni-reserve-button {
+            {{ shopware.config.SgateClickAndReserveSW6.config.colors }}
+        }
+    </style>
+   <div class="rr-wrapper">
+       <div class="rr-cart">
+            {{ parent() }}
+        </div>
+        <div id="rr-reserve-button"></div>
+        <div id="rr-live-inventory"></div>
+   </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+

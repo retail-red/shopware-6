@@ -1,0 +1,108 @@
+{% sw_extends '@Storefront/storefront/page/content/product-detail.html.twig' %}
+{% set productCodeMapping = config('SgateClickAndReserveSW6.config.productCodeMapping') %}
+
+{% block base_head %}
+    {{ parent() }}
+
+    {% if shopware.config.SgateClickAndReserveSW6.config.displayType != 'disabled' %}
+    <script async type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v2.js'></script>
+    <script type="text/javascript">
+        try {
+            window.addEventListener('load', function () {
+                var localization = {{ config('SgateClickAndReserveSW6.config.translations')|raw|default('null') }} || {};
+                localization.countries = {{ config('SgateClickAndReserveSW6.config.countries')|default(['de'])|json_encode|raw }};
+                var variants = {{ page.product.variation|default([])|json_encode|raw }};
+                var product = {{ page.product|json_encode|raw }};
+                var getBasicVariantData = function(variant) {
+                  return {
+                    code: variant.group,
+                    name: variant.group,
+                    value: {
+                      code: variant.option,
+                      name: variant.option
+                    }
+                  }
+                };
+                var sgData = {
+                  apiKey: '{{ config('SgateClickAndReserveSW6.config.apiKey') }}',
+                  apiStage: '{{ config('SgateClickAndReserveSW6.config.apiStage') }}',
+                  useGeolocationImmediately: {{ config('SgateClickAndReserveSW6.config.useGeolocationImmediately') | json_encode }},
+                  browserHistory: {{ config('SgateClickAndReserveSW6.config.browserHistory') | json_encode }},
+                  testMode: {{ config('SgateClickAndReserveSW6.config.testMode') | json_encode }},
+                  unitSystem: '{{ config('SgateClickAndReserveSW6.config.unitSystem') }}',
+                  saveCustomerData: '{{ config('SgateClickAndReserveSW6.config.saveCustomerData') === 'consentManager' ? (document.cookie.indexOf('sg-save-customer-data-enabled=') !== -1 ? 'on' : 'off') : config('SgateClickAndReserveSW6.config.saveCustomerData') }}',
+                  localization: localization,
+                  inventory: {
+                    hideNumber: {{ config('SgateClickAndReserveSW6.config.inventoryHideNumber') | json_encode }},
+                    showExactUntil: {{ config('SgateClickAndReserveSW6.config.inventoryShowExactUntil') |default('null') }},
+                    showLowUntil: {{ config('SgateClickAndReserveSW6.config.inventoryShowLowUntil') |default('null') }},
+                  },
+                  legal: {
+                    terms: '{{ config('SgateClickAndReserveSW6.config.termsLink') |default(null) }}',
+                    privacy: '{{ config('SgateClickAndReserveSW6.config.privacyLink') |default(null) }}',
+                  },
+                  customer: {
+                    code: '{{ context.customer.customerNumber }}',
+                    firstName: '{{ context.customer.firstName }}',
+                    lastName: '{{ context.customer.lastName }}',
+                    phone: '{{ context.customer.defaultBillingAddress.phoneNumber }}',
+                    emailAddress: '{{ context.customer.email }}',
+                  },
+                  product: {
+                    code: '{% if productCodeMapping == 'ean' and page.product.ean is defined %}{{ page.product.ean }}{% else %}{{ page.product.productNumber }}{% endif %}',
+                    name: '{{ page.product.translated.name }}',
+                    quantity: {{ page.product.calculatedPrice.quantity }},
+                    imageUrl: '{{ page.product.cover.media.url }}',
+                    price: {{ page.product.calculatedPrice.unitPrice }},
+                    currencyCode: '{{ context.currency.isoCode }}',
+                    options: variants.map(function (variant) {
+                      if (!product.sortedProperties) {
+                        return getBasicVariantData(variant);
+                      }
+                      const sortedProperty = product.sortedProperties.find(function(sortedProperty) {
+                        return sortedProperty.name === variant.group
+                      })
+                      if (!(sortedProperty && sortedProperty.options)) {
+                        return getBasicVariantData(variant);
+                      }
+
+                      const variantDetails = sortedProperty.options.find(function(sortedPropertyOption) {
+                        return variant.option === sortedPropertyOption.name
+                      });
+
+                      return {
+                        code: sortedProperty.id,
+                        name: sortedProperty.name,
+                        value: {
+                          code: variantDetails.id,
+                          name: variantDetails.name
+                        }
+                      }
+                    }).filter(Boolean)
+                  },
+                };
+                var retailred = window.RetailRedStorefront.create(sgData);
+
+                {% if config('SgateClickAndReserveSW6.config.displayType') == 'reserveButton' %}
+                    retailred.renderReserveButton('#rr-reserve-button')
+                {% elseif config('SgateClickAndReserveSW6.config.displayType') == 'liveInventory' %}
+                    retailred.renderLiveInventory('#rr-live-inventory', {
+                      variant: '{{ config('SgateClickAndReserveSW6.config.renderLiveInventoryMode') }}'
+                    });
+                {% endif %}
+
+                document.querySelector('.js-quantity-selector').addEventListener('change',function() {
+                    retailred.updateConfig({
+                        product: {
+                            quantity: parseInt(this.value),
+                        },
+                    });
+                });
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    </script>
+    {% endif %}
+{% endblock %}
+

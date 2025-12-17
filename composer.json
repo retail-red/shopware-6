@@ -1,7 +1,7 @@
 {
     "name": "shopgate/click-and-reserve-shopware6",
     "description": "Shopgate - Click & Reserve",
-    "version": "1.4.2",
+    "version": "1.4.3-beta.1",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "authors": [

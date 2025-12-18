@@ -6,7 +6,7 @@
     {{ parent() }}
 
     {% if shopware.config.SgateClickAndReserveSW6.config.displayType != 'disabled' %}
-    <script async type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v2.js'></script>
+    <script async type='text/javascript' src='https://cdn.omni.shopgate.com/omni/storefront-library-v4.js'></script>
     <script type="text/javascript">
         try {
             window.addEventListener('load', function () {
@@ -82,18 +82,18 @@
                     }).filter(Boolean)
                   },
                 };
-                var retailred = window.RetailRedStorefront.create(sgData);
+                var shopgateStorefront = window.ShopgateStorefront.create(sgData);
 
                 {% if config('SgateClickAndReserveSW6.config.displayType') == 'reserveButton' %}
-                    retailred.renderReserveButton('#rr-reserve-button')
+                    shopgateStorefront.renderReserveButton('#rr-reserve-button')
                 {% elseif config('SgateClickAndReserveSW6.config.displayType') == 'liveInventory' %}
-                    retailred.renderLiveInventory('#rr-live-inventory', {
+                    shopgateStorefront.renderLiveInventory('#rr-live-inventory', {
                       variant: '{{ config('SgateClickAndReserveSW6.config.renderLiveInventoryMode') }}'
                     });
                 {% endif %}
 
                 $('.product-detail-quantity-select').change(function() {
-                    retailred.updateConfig({
+                    shopgateStorefront.updateConfig({
                         product: {
                             quantity: parseInt($(this).val()),
                         },

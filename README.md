@@ -1,4 +1,4 @@
-# retail.red plugin for Shopware 6
+# Click & Reserve Plugin for Shopware 6
 This plugin enables merchants to easily offer click & reserve functionality in their Shopware 6 Shop. 
 It uses our [storefront javascript library](https://github.com/retail-red/storefront-library).
 The script adds a “reserve” button to the product detail page, via which a new reservation can be placed.
@@ -21,7 +21,7 @@ For SW marketplace upload you need to zip this repository like this
 zip -r SgateClickAndReserveSW6.zip SgateClickAndReserveSW6 -x ".*" -x "__MACOSX"
 
 ## Support
-Contact us via [mail@retail.red](mailto:mail@retail.red)
+Contact us via [support@shopgate.com](mailto:support@shopgate.com)
 
 ## Changelog
 See [CHANGELOG.md](CHANGELOG.md) file for more information.

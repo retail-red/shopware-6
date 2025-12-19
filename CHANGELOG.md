@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [Unreleased]
 ### Changed
 - position of the click & reserve widget on default Shopware 6.7 PDP
+- uses Shopgate Storefront Library v4
 
 ## [1.4.2] - 2025-12-16
 ### Added

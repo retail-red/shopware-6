@@ -11,5 +11,9 @@
         <!-- Implements allow/disallow cookie entry -->
         <service id="Shopgate\Shopware\ClickAndReserve\Service\CookieProvider"
                  decorates="Shopware\Storefront\Framework\Cookie\CookieProviderInterface"/>
+
+        <service id="Shopgate\Shopware\ClickAndReserve\Twig\HtmlEntityDecodeExtension">
+            <tag name="twig.extension"/>
+        </service>
     </services>
 </container>

@@ -9,7 +9,7 @@
     <script type="text/javascript">
         try {
             window.addEventListener('load', function () {
-                var localization = {{ config('SgateClickAndReserveSW6.config.translations')|raw|default('null') }} || {};
+                var localization = {{ html_entity_decode(config('SgateClickAndReserveSW6.config.translations')|raw|default('null')) }} || {};
                 localization.countries = {{ config('SgateClickAndReserveSW6.config.countries')|default(['de'])|json_encode|raw }};
                 var variants = {{ page.product.variation|default([])|json_encode|raw }};
                 var product = {{ page.product|json_encode|raw }};

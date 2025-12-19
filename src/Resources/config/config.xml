@@ -284,13 +284,23 @@
             <placeholder>
             {
                 "de":{
-                    "reserve.submit":"Reserve JETZT"
+                    "reserve.submit":"JETZT reservieren"
                 },
                 "en":{
                     "reserve.submit":"Reserve NOW"
                 }
             }
             </placeholder>
+            <defaultValue>
+            {
+                "de":      {
+                    "reserve.submit":"JETZT reservieren"
+                },
+                "en":{
+                    "reserve.submit":"Reserve NOW"
+                }
+            }
+            </defaultValue>
         </input-field>
     </card>
 </config>

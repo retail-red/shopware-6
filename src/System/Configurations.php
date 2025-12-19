@@ -11,19 +11,19 @@ class Configurations extends Struct
 {
     public const PREFIX = 'SgateClickAndReserveSW6.config.';
     public const SAVE_CUSTOMER_DATA = self::PREFIX . 'saveCustomerData';
-    
+
     public const COOKIE_DEFAULT_OPTION_ENABLED = 'on';
     public const COOKIE_DEFAULT_OPTION_DISABLED = 'off';
     public const COOKIE_DEFAULT_OPTION_CHECKBOX = 'checkbox';
-    
+
     /** @var SystemConfigService */
     private $configService;
-    
+
     /**
      * @var array<string, mixed>
      */
     private $config = [];
-    
+
     /**
      * @param SystemConfigService $configService
      */
@@ -31,7 +31,7 @@ class Configurations extends Struct
     {
         $this->configService = $configService;
     }
-    
+
     /**
      * @param string $key
      * @param string|null $channelId
@@ -44,10 +44,10 @@ class Configurations extends Struct
         if ($configValue === null || (is_string($configValue) && trim($configValue) === '')) {
             return $default;
         }
-        
+
         return $configValue;
     }
-    
+
     /**
      * @return array<string, mixed>
      */
@@ -55,7 +55,7 @@ class Configurations extends Struct
     {
         return $this->config;
     }
-    
+
     /**
      * @param string|null $channelId - uses global if null
      * @return string

@@ -1,7 +1,7 @@
 {% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget-form.html.twig' %}
 {% block buy_widget_buy_button_container %}
     {{ parent() }}
-    {% if shopware.config.SgateClickAndReserveSW6.config.displayType != 'disabled' %}
+    {% if config('SgateClickAndReserveSW6.config.displayType') != 'disabled' %}
         <style type="text/css">
             .rr-wrapper {
                 align-items: center;
@@ -16,8 +16,8 @@
                 font-size: 1rem;
             }
 
-            #rr-omni #rr-omni-custom, #rr-omni-reserve-button {
-            {{ shopware.config.SgateClickAndReserveSW6.config.colors }}
+            #rr-omni #rr-omni-custom, #rr-omni-reserve-button, #rr-inventory {
+            {{ config('SgateClickAndReserveSW6.config.colors')|raw }}
             }
         </style>
         <div class="rr-wrapper">

@@ -14,7 +14,21 @@ Our plugin comes with a bunch of configuration options. The only setting that yo
 You will find your key in our admin in Settings -> General -> Storefront API Key
 
 All other settings are optional. 
-More details can be found here https://github.com/retail-red/storefront-library 
+More details can be found in the [Shopgate Storefront Library Documentation](https://github.com/retail-red/storefront-library) 
+
+### Custom Translations
+In case you want to set custom translations for certain strings, you can use this template:
+```
+{
+      "de":{
+          "reserve.submit":"Reservieren"
+      },
+      "en":{
+           "reserve.submit":"Reserve NOW"
+      }
+}
+```
+Available strings can be found details can be found [here](https://github.com/retail-red/storefront-library/blob/master/src/locales/en.js). 
 
 ## Developer note
 For SW marketplace upload you need to zip this repository like this

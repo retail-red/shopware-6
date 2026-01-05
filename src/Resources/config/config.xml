@@ -10,8 +10,8 @@
             <name>apiKey</name>
             <label>Storefront API Key</label>
             <copyable>true</copyable>
-            <helpText>Please test the connection in your Shopgate account.</helpText>
-            <helpText lang="de-DE">Verbindung im Shopgate Händlerbereich testen.</helpText>
+            <helpText>Can be found in Shopgate Admin at "Settings"</helpText>
+            <helpText lang="de-DE">Zu finden im Shopgate Admin unter "Einstellungen".</helpText>
         </input-field>
 
         <input-field type="single-select">
@@ -39,11 +39,11 @@
             <options>
                 <option>
                     <id>production</id>
-                    <name>production</name>
+                    <name>Production</name>
                 </option>
                 <option>
                     <id>staging</id>
-                    <name>staging</name>
+                    <name>Staging</name>
                 </option>
             </options>
         </input-field>
@@ -89,6 +89,7 @@
 
         <input-field type="bool">
             <name>browserHistory</name>
+            <label lang="de-DE">Browser Historie nutzen</label>
             <label>Use browser history</label>
             <helpText>
                 If enabled the browsers history will be used within the reservation modal allowing the users to navigate with the native controls. Can be disabled when your store is already using the browsers history internally and the modals history conflicts with it.
@@ -99,6 +100,7 @@
 
         <input-field type="bool">
             <name>useGeolocationImmediately</name>
+            <label lang="de-DE">Standort sofort abfragen</label>
             <label>Use Geolocation immediately</label>
             <helpText>If enabled, whenever the user opens the store list the browser's geolocation will be requested immediately instead of only after pressing the "locate me" button.</helpText>
             <helpText lang="de-DE">Wenn diese Option aktiviert ist, wird der Zugriff auf die Geo-Location sofort nach dem Öffnen der Filial-Übersicht angefragt.</helpText>
@@ -107,6 +109,7 @@
 
         <input-field type="bool">
             <name>testMode</name>
+            <label lang="de-DE">Testmodus</label>
             <label>Testmode</label>
             <helpText>
                 When set to true no buttons will be rendered within the users' browser, until the page was once opened with query parameter "rrTesting=start". The testing session can be terminated by opening the page with "rrTesting=end".
@@ -117,22 +120,24 @@
 
         <input-field type="single-select">
             <name>unitSystem</name>
+            <label lang="de-DE">Einheit</label>
             <label>Units</label>
             <defaultValue>metric</defaultValue>
             <options>
                 <option>
                     <id>metric</id>
-                    <name>metric</name>
+                    <name>Metric</name>
                 </option>
                 <option>
                     <id>imperial</id>
-                    <name>imperial</name>
+                    <name>Imperial</name>
                 </option>
             </options>
         </input-field>
 
         <input-field type="multi-select">
             <name>countries</name>
+            <label lang="de-DE">Länder</label>
             <label>Countries</label>
             <helpText>Set the available countries for the store list search</helpText>
             <helpText lang="de-DE">Wählen Sie die verfügbaren Länder für die Filialsuche aus.</helpText>
@@ -151,6 +156,7 @@
         <input-field type="single-select">
             <name>displayType</name>
             <label>Display on product detail page</label>
+            <label lang="de-DE">Anzeige auf Produktdetailseite</label>
             <helpText>
                 Choose what should be displayed on the product detail page.
                 Reservation button - A button that opens a popup with a store list and the availability of the selected product in these stores.
@@ -177,6 +183,7 @@
 
         <input-field type="single-select">
             <name>renderLiveInventoryMode</name>
+            <label lang="de-DE">Filialauswahl</label>
             <label>Store selection</label>
             <helpText>
                 Only relevant if "Show availability in store" is selected above. Choose how the customer can select his store.
@@ -201,6 +208,7 @@
         <input-field type="bool">
             <name>inventoryHideNumber</name>
             <label>Hide stock</label>
+            <label lang="de-DE">Bestand verstecken</label>
             <helpText>Hides the stock number and therefore display only if the product is available or not.</helpText>
             <helpText lang="de-DE">Blendet den tatsächlichen Bestand aus und zeigt nur "Verfügbar" an.</helpText>
             <defaultValue>false</defaultValue>
@@ -208,6 +216,7 @@
 
         <input-field type="int">
             <name>inventoryShowExactUntil</name>
+            <label lang="de-DE">Exakten Bestand bis X anzeigen</label>
             <label>Show exact inventory until</label>
             <helpText>If inventory is higher than the given number the inventory will be displayed as "X+ Available"</helpText>
             <helpText lang="de-DE">Wenn der Bestand höher als angegeben ist, wird "X+ Verfügbar" angezeigt.</helpText>
@@ -215,6 +224,7 @@
 
         <input-field type="int">
             <name>inventoryShowLowUntil</name>
+            <label lang="de-DE">Niedrigen Bestand bis X anzeigen</label
             <label>Show low inventory until</label>
             <helpText>If inventory is lower than the given number the inventory will be displayed in the state-warning color</helpText>
             <helpText lang="de-DE">Wenn der Bestand niedriger als angegeben ist, wird "X Verfügbar" in der state-warning Farbe angezeigt.</helpText>
@@ -223,6 +233,7 @@
 
         <input-field type="url">
             <name>termsLink</name>
+            <label lang="de-DE">ABG-Link</label
             <label>Terms Link</label>
             <helpText>Add a URL to the terms and condition page, also enforces the user to accept them before placing a reservation</helpText>
             <helpText lang="de-DE">Fügen Sie eine URL ein, damit der Kunde die AGB vor Abschluss der Reservierung akzeptieren muss.</helpText>
@@ -232,6 +243,7 @@
         <input-field type="url">
             <name>privacyLink</name>
             <label>Privacy Link</label>
+            <label lang="de-DE">Datenschutz-Link</label
             <helpText>Add a URL to the privacy page, also enforces the user to accept them before placing a reservation</helpText>
             <helpText lang="de-DE">Fügen Sie eine URL ein, damit der Kunde die Datenschutzerklärung vor Abschluss der Reservierung akzeptieren muss.</helpText>
             <copyable>true</copyable>
@@ -279,8 +291,8 @@
         <input-field type="textarea">
             <name>translations</name>
             <label>Translations JSON</label>
-            <helpText>JSON format. All strings can be found in the github repo</helpText>
-                <helpText lang="de-DE">Alle Strings zur Übersetzung finden Sie auf unserem GitHub Profil.</helpText>
+            <helpText>JSON format. Find example strings can be found under [this Link]{https://github.com/retail-red/shopware-6?tab=readme-ov-file#custom-translations}</helpText>
+                <helpText lang="de-DE">Beispiele finden Sie unter [diesem Link]{https://github.com/retail-red/shopware-6?tab=readme-ov-file#custom-translations}</helpText>
             <placeholder>
             {
                 "de":{

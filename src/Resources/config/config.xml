@@ -224,7 +224,7 @@
 
         <input-field type="int">
             <name>inventoryShowLowUntil</name>
-            <label lang="de-DE">Niedrigen Bestand bis X anzeigen</label
+            <label lang="de-DE">Niedrigen Bestand bis X anzeigen</label>
             <label>Show low inventory until</label>
             <helpText>If inventory is lower than the given number the inventory will be displayed in the state-warning color</helpText>
             <helpText lang="de-DE">Wenn der Bestand niedriger als angegeben ist, wird "X Verfügbar" in der state-warning Farbe angezeigt.</helpText>
@@ -233,7 +233,7 @@
 
         <input-field type="url">
             <name>termsLink</name>
-            <label lang="de-DE">ABG-Link</label
+            <label lang="de-DE">ABG-Link</label>
             <label>Terms Link</label>
             <helpText>Add a URL to the terms and condition page, also enforces the user to accept them before placing a reservation</helpText>
             <helpText lang="de-DE">Fügen Sie eine URL ein, damit der Kunde die AGB vor Abschluss der Reservierung akzeptieren muss.</helpText>
@@ -243,7 +243,7 @@
         <input-field type="url">
             <name>privacyLink</name>
             <label>Privacy Link</label>
-            <label lang="de-DE">Datenschutz-Link</label
+            <label lang="de-DE">Datenschutz-Link</label>
             <helpText>Add a URL to the privacy page, also enforces the user to accept them before placing a reservation</helpText>
             <helpText lang="de-DE">Fügen Sie eine URL ein, damit der Kunde die Datenschutzerklärung vor Abschluss der Reservierung akzeptieren muss.</helpText>
             <copyable>true</copyable>
@@ -291,8 +291,6 @@
         <input-field type="textarea">
             <name>translations</name>
             <label>Translations JSON</label>
-            <helpText>JSON format. Find example strings can be found under [this Link]{https://github.com/retail-red/shopware-6?tab=readme-ov-file#custom-translations}</helpText>
-                <helpText lang="de-DE">Beispiele finden Sie unter [diesem Link]{https://github.com/retail-red/shopware-6?tab=readme-ov-file#custom-translations}</helpText>
             <placeholder>
             {
                 "de":{
@@ -305,9 +303,13 @@
             </placeholder>
             <defaultValue>
             {
+                // JSON-formatiert; Zeilen, die mit // beginnen, sind Kommentare und werden ignoriert
+                // siehe https://github.com/shopgate/click-and-reserve-shopware6?tab=readme-ov-file#custom-translations
                 "de":      {
                     "reserve.submit":"JETZT reservieren"
                 },
+                // JSON-formatted, any line starting with // is a comments and will be ignored
+                // see https://github.com/shopgate/click-and-reserve-shopware6?tab=readme-ov-file#custom-translations
                 "en":{
                     "reserve.submit":"Reserve NOW"
                 }

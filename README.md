@@ -1,3 +1,8 @@
+> [!CAUTION]
+> THIS REPOSITORY HAS BEEN ABANDONED.
+>
+> The project moved to https://github.com/shopgate/click-and-reserve-shopware6
+
 # Click & Reserve Plugin for Shopware 6
 This plugin enables merchants to easily offer click & reserve functionality in their Shopware 6 Shop. 
 It uses our [storefront javascript library](https://github.com/retail-red/storefront-library).
